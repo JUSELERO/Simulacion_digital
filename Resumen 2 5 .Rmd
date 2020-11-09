@@ -65,8 +65,9 @@ strings <- c("abc","dfg","hij","klm")
 ##imprimimos los strings
 strings
 ```
+
+Agregar elementos a nuestro vector existente se puede de la siguiente manera: Asignando un valor, seguido del vector inicial:
 ```{r}
-##Agregar elementos a nuestro vector existente se puede de la siguiente manera: Asignando un valor, seguido del vector inicial:
 mi_vector <- c(TRUE, FALSE, TRUE, FALSE)
 
 mi_vector <- c(mi_vector, FALSE)
@@ -85,9 +86,9 @@ vector_3
 
 class(vector_1)
 ```
-```{r}
-##Pero se puede concatenar elementos de distinto tipo en un mismo vector, el resultado será un vector con un mismo tipo, el mas cómodo que encuentre R.
 
+Pero se puede concatenar elementos de distinto tipo en un mismo vector, el resultado será un vector con un mismo tipo, el mas cómodo que encuentre R.
+```{r}
 mi_vector_nuevo <- c(vector_1, "a")
 mi_vector_nuevo# el nuevo vector sera de tipo string, pues es mas flexible para R.
 
@@ -156,7 +157,7 @@ vector == 30 # compara que valor es igual a 3
 
 
 
-<h1>Objetos:</h1>
+<h1>5. Objetos:</h1>
 
 En R es orientada a objetos, y básicamente los siguientes son los principales objetos que se usan en este lenguaje:
 <ul>
@@ -255,7 +256,7 @@ milista <- list(E1=mivector, E2=matriz2, E3=df)
 
 8.	Utiliza un dataframe  de demostración para mostrar ejemplos de visualización
 
-<h1>Visualizacion de Frameworks </h1>
+<h1>8. Visualizacion de Frameworks </h1>
 
 Empezaremos haciendo uso de la libreria tidyverse, que nos proporcionará las herramientas necesarias para la visualización del dataframe.
 <br>
