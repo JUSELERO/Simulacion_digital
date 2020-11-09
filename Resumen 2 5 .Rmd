@@ -1,0 +1,333 @@
+
+
+2.	Introduce el concepto de vectores en R y da ejemplos de creación, manipulación
+
+
+```{r}
+
+```
+
+<h2>2) Estructuras de datos</h2>
+
+Entre sus caractreristicas principales está: su dimensión, si es homogeneo o heterogeneo.
+
+
+<table>
+  <tr>
+    <td>Dimensiones </td>
+    <td>Homogeneas </td>
+    <td>Heterogeneas </td>
+  </tr>
+  <tr>
+    <td>1   </td>
+    <td>Vector</td>
+    <td>   Lista</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Matriz </td>
+    <td> Data frame</td>
+  </tr>
+  <tr>
+    <td>n</td>
+    <td>Array</td>
+    <td></td>
+  </tr>
+</table>
+
+ 
+ 
+               
+             
+
+<h3>Vector: </h3>
+
+Colección de uno o mas datos del mismo tipo.
+      
+Propiedades:
+  <ul>
+    <li>Tipo: Tiene el mismo tipo de datos siempre(Son                     atómicos).</li>
+    <li>Largo: Tamaño del vector, cantidad de elementos, no tiene mas dimensiones.</li>
+    <li>Atributos: Pueden tener Metadatos de distintos tipos, describen al vector.</li>
+    
+  </ol>
+
+ 
+```{r}
+##Creamos un vector numérico
+
+c(12,4,34,6,1,3)
+```
+```{r}
+##asignamos el valor  un vector de strings
+strings <- c("abc","dfg","hij","klm")
+
+##imprimimos los strings
+strings
+```
+```{r}
+##Agregar elementos a nuestro vector existente se puede de la siguiente manera: Asignando un valor, seguido del vector inicial:
+mi_vector <- c(TRUE, FALSE, TRUE, FALSE)
+
+mi_vector <- c(mi_vector, FALSE)
+
+#Ahora hay 5 elementos en el mismo vector, y se añadió un elemento booleane FALSE, al final del vector
+mi_vector
+```
+```{r}
+#Se puede combinar vectores:
+vector_1 <- c(1,2,3)
+vector_2 <- c(4,5,6)
+vector_3 <- c(vector_1,vector_2)
+vector_3
+
+#Podemos differenciar el tipo de elementos del vector 
+
+class(vector_1)
+```
+```{r}
+##Pero se puede concatenar elementos de distinto tipo en un mismo vector, el resultado será un vector con un mismo tipo, el mas cómodo que encuentre R.
+
+mi_vector_nuevo <- c(vector_1, "a")
+mi_vector_nuevo# el nuevo vector sera de tipo string, pues es mas flexible para R.
+
+```
+
+```{r}
+
+```
+  <h4>Dato:</h4> Los tipos de datos mas básicos son vectores
+      <ul>
+       <li> Números</li>
+       <li> Strings</li>
+       <li> Booleanos</li>
+      </ul>
+```{r}
+is.vector(TRUE)
+is.vector(3)
+is.vector("tres")
+```
+
+<h3>Manipulación de Vectores:</h3>
+
+Los vectores se pueden operar principalmente de forma:
+
+  <ul>
+  <li>aritmetica</li>
+  <li>racional</li>
+  </ul>
+```{r}
+#Creamos un vector 
+
+vector <- c(1,2,3,4,5)
+vector +1
+#Pero ahí no ha cambiado el vector original, debemos asignarle la operación aritmética
+vector=vector +1
+vector
+```
+
+```{r}
+
+#También podemos asignar nuevas operaciones
+
+vector=vector *10# multiplicación
+vector
+
+vector %% 6#residuo
+```
+
+```{r}
+
+## Ahora la operación racional:
+
+vector > 7# compara cada elemento si es mayor que 7
+
+vector == 30 # compara que valor es igual a 3
+
+
+```
+************************************
+```{r}
+
+```
+
+5.	Da ejemplos de diferentes objetos existentes en R.
+<br>
+
+
+
+<h1>Objetos:</h1>
+
+En R es orientada a objetos, y básicamente los siguientes son los principales objetos que se usan en este lenguaje:
+<ul>
+    <li>Variables</li>
+    <li>Vectores</li>
+    <li>Matrices</li>
+    <li>Arreglos</li>
+    <li>Marco de datos(FRAMEWORKS)</li>
+    <li>Listas</li>
+  </ul>
+
+<h3>VARIABLES</h3>
+```{r}
+x <- 12 # En esta instrucción se está creando el objeto y a su vez asignando el valor numerico 12, de igual forma con cadenas de texto, booleanos entre otros.
+x
+
+strin <- "Cadena de Texto"  
+strin
+```
+
+<h3>VECTORES</h3>
+```{r}
+#Para crear vectores usamos la función c() que crea un objeto vector, ademas de que su significado es concatenar.
+
+numeros <- c(1,2,3,4,5,6,7)
+edades <- c(12,13,14,15,NA,12,17)#Las NA significan vacio, sin embargo se creó el espacio en el vector, pero está vacío.
+
+numeros
+edades
+```
+
+<h3>Matrices</h3>
+```{r}
+matriz <- matrix(data=1:20, nrow=4, ncol=5, byrow=FALSE)
+
+# La creación del objeto tipo matriz se dá con la función matrix(), cuyos argumentos son:
+  #data = (Asigna los datos, en nuestro caso, numeros de 1 a 20)
+  #nrow= (cantidad de filas )
+  #ncol= (cnatidad de columnas)
+  #byrow= (TRUE/FALSE)-> De ser TRUE Indica si la manera en que se insertan los datos es por filas
+matriz[2,]#Imprime la fila 2
+matriz[,2]
+matriz[2,4]
+```
+
+
+<h3>ARREGLOS</h3>
+```{r}
+#La siguiente es una instrucción para la creación de arrays
+
+array <- array(data=letters[1:24], dim=c(3, 4, 2))
+#Nuevamente el argumento data, indica los datos que contendrá nuestro array, en este caso, las primeras 24 letras del abecedario. El argumento dim hace referencia a las dimenciones del array.
+
+array
+#Para acceder a un dato del array lo hacemos de la siguiente manera
+array[2,2,2]#Ubicando en la posición [2,2,2] del array, nos devolverá el valor de "q"
+```
+
+
+<h3>Marco de Datos ( Frameworks )</h3>
+
+El marco de datos tiene gran importancia dado que permite la agrupación de vectores de distintos tipos en un mismo objeto. Los vectores deben tener la misma longitud, esta es una restricción importante.
+<br>
+Para crear un marco de datos usamos la funcion data.frame()
+<br>
+Crearemos unos vectores y con estos haremos un data frame
+```{r}
+numeros=c(1,2,3,4,5,6,7)
+booleanos=c(FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE)
+cadenas=c('a','b','c','d','e','f','g')
+
+df=data.frame(numeros,booleanos,cadenas)
+
+df
+
+#Podemos extraer una variable del dataframe de la siguiente manera:
+
+df$booleanos #De igual forma existen distintas maneras para acceder a los datos de un Dataframe, que veremos mas adelante.
+
+```
+
+
+<h3>Listas</h3>
+
+<br>
+Los siguientes códigos son la creación de una lista que contiene objetos de diferentes tipos:
+```{r}
+set.seed(12345)# "plantamos" la semilla para la generación de numeros aleatorios.
+mivector <- runif(n=5)
+matriz2 <- matrix(data=1:12, ncol=6)
+milista <- list(E1=mivector, E2=matriz2, E3=df)
+
+#
+
+```
+
+8.	Utiliza un dataframe  de demostración para mostrar ejemplos de visualización
+
+<h1>Visualizacion de Frameworks </h1>
+
+Empezaremos haciendo uso de la libreria tidyverse, que nos proporcionará las herramientas necesarias para la visualización del dataframe.
+<br>
+Las lineas comentadas solo se ejecutan 1 vez.
+```{r}
+library(tidyverse)
+#install.packages("remotes")
+#remotes::install_github("cienciadedatos/datos")
+
+library(datos)
+```
+
+```{r}
+mtautos
+```
+En este ploteo podemos ver una corelación entre el el cilindraje del vehiculo y su fuerza en [caballos de fuerza]. Con este mapeo vemos que existe una tendencia, en que a mayor cilindraje, mayor fuerza.
+
+<h3>Usaremos el primer tipo de gráfico, con ggplot:</h3>
+
+```{r}
+
+ggplot(data = mtautos) +geom_point(mapping = aes(x = cilindrada, y = caballos))
+```
+Ahora podremos agregarle una "dimensión" en colores, estos serán la cantidad de cambios que tienen en su caja de cambios.
+```{r}
+ggplot(data = mtautos) + geom_point(mapping = aes(x = cilindrada, y = caballos, color = cambios))
+```
+Tambien podemos graficar en varias gráficas, filtrando por la caracteristica de una columna, en este caso la misma columna cambios
+```{r}
+ggplot(data = mtautos) + geom_point(mapping = aes(x = cilindrada, y = caballos)) + facet_wrap(~ cambios, nrow = 1)
+```
+<h3>El segpundo tipo de gráfico: Forma geometrica</h3
+
+Nos puede dar una forma geométrica a los datos ploteados
+
+```{r}
+# Puntos
+ggplot(data = mtautos) + geom_point(mapping = aes(x = cilindrada, y = caballos))
+
+#  línea suavizada ajustada a los datos
+ggplot(data = mtautos) + geom_smooth(mapping = aes(x = cilindrada, y = caballos))
+
+#Tambien a ambas graficas al tiempo
+ggplot(data = mtautos) + geom_point(mapping = aes(x = cilindrada, y = caballos)) + geom_smooth(mapping = aes(x = cilindrada, y = caballos))
+```
+
+<h3>El tercer tipo de gráfico: Diagrama de barras</h3>
+
+En este diagrama usamos un dataframe con datos de aviones, el cual nos muestra que la marca BOEING lidera el mercado de los aviones de aala fija multimotor.
+
+El argumento 'fill' permite asignar un color a cada barra, hacendo referencial a la marca del avión.
+```{r}
+ggplot(data = aviones) + geom_bar(mapping = aes(x = tipo, fill = fabricante),position = "dodge")
+
+```
+<h3>El cuarto tipo de gráfico: </h3>
+
+Conocido como diagrama de "bigotes", 
+Sus argumentos son:
+ <ul>
+  <li>dataframe (aviones)</li>b|f
+  <li>Eje x ( años) </li>
+  <li>Eje y (tipo de avion) </li>
+  <li>la función geom_boxplot() permite convertir el ploteo en diagrama de cajas o bigotes</li>
+  <li>La función coord_flip() voltea la orientación de la gráfica</li>
+</ul>
+se visualiza con la siguiente instrucción:
+
+(Si desea rotarlo, elimine el # de la linea 301)
+```{r}
+
+ggplot(data = aviones, mapping = aes(x = anio, y = tipo)) + geom_boxplot() #+coord_flip()
+```
+
+
